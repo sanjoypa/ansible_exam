@@ -1,0 +1,9 @@
+- name: Run PHP role 
+  hosts: webservers
+  roles:
+          - phpinfo
+
+- name: Run Balancer
+  hosts: balancers
+  roles:
+          - balancer 

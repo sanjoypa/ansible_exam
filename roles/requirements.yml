@@ -1,0 +1,5 @@
+---
+- src: http://content.example.com/Rhce/balancer.tgz
+  name: balancer
+- src: http://content.example.com/Rhce/phpinfo.tgz
+  name: phpinfo

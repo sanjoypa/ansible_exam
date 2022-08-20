@@ -1,0 +1,23 @@
+- name: Create directory
+  hosts: dev
+  tasks:
+     - name: Creating Folder
+       file:
+               path: /devweb
+               state: directory
+               mode: 2775
+               setype: httpd_sys_content_t
+     - name: Creating File
+       file:
+               path: /devweb/index.html
+               state: touch
+     - name: Creating content
+       copy:
+               content: "Developement\n"
+               dest: /devweb/index.html
+     - name: Linking File
+       file:
+               src: /devweb
+               dest: /var/www/html/devweb
+               state: link
+

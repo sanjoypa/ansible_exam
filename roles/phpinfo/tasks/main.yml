@@ -1,0 +1,37 @@
+---
+# tasks file for phpinfo
+- name: Install httpd package
+  yum:
+    name: 
+      - httpd
+      - firewalld
+      - mariadb-server
+      - php
+      - php-mysqlnd
+    state: present
+- name: start service httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+- name: start service firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+- name: mariadb enabled and running
+  service:
+    name: mariadb
+    enabled: true
+    state: started
+- name: Add http service in firewall rule
+  firewalld:
+    service: http
+    state: enabled
+    permanent: yes
+    immediate: yes
+- name: test php page is installed
+  get_url:
+    url: "http://materials.example.com/labs/playbook-review/index.php"
+    dest: /var/www/html/index.php
+    mode: 0644

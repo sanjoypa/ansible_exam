@@ -1,0 +1,11 @@
+[dev]
+ansible2.example.com
+[test]
+ansible3.example.com
+[prod]
+ansible4.example.com
+[balancers]
+ansible5.example.com
+[webservers:children]
+prod
+

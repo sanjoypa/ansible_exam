@@ -1,0 +1,7 @@
+- name: Implement Selinux
+  hosts: all
+  vars:
+          - selinux_state: enforcing
+  roles:
+          - /usr/share/ansible/roles/rhel-system-roles.selinux
+

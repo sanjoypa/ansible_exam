@@ -1,0 +1,9 @@
+- name: NTP Config
+  hosts: all
+  vars:
+          timesync_ntp_servers:
+          - hostname: 192.168.179.129
+            iburst: yes
+
+  roles:
+          -  /usr/share/ansible/roles/rhel-system-roles.timesync
